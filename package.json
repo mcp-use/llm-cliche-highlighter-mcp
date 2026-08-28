@@ -1,0 +1,41 @@
+{
+  "name": "llm-cliche-highlighter-mcp",
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "version": "1.0.0",
+  "description": "MCP server that flags common LLM writing clichés using local pattern matching",
+  "author": "Pietro Zullo",
+  "license": "MIT",
+  "homepage": "https://github.com/mcp-use/llm-cliche-highlighter-mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcp-use/llm-cliche-highlighter-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "chatgpt plugins",
+    "claude connector",
+    "mcp-app",
+    "mcp-use",
+    "manufact"
+  ],
+  "scripts": {
+    "build": "mcp-use build",
+    "dev": "mcp-use dev",
+    "start": "mcp-use start",
+    "deploy": "mcp-use deploy",
+    "test": "node --test",
+    "typecheck": "mcp-use typecheck"
+  },
+  "dependencies": {
+    "mcp-use": "2.3.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "typescript": "^7.0.2"
+  }
+}
