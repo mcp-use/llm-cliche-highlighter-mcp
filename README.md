@@ -1,5 +1,8 @@
 # LLM Cliché Highlighter MCP Server
 
+[![MCP Server Checks](https://github.com/mcp-use/llm-cliche-highlighter-mcp/actions/workflows/checks.yml/badge.svg)](https://github.com/mcp-use/llm-cliche-highlighter-mcp/actions/workflows/checks.yml)
+[![Deploy to Manufact](https://cdn.mcp-use.com/deploy.svg)](https://mcp-use.com/deploy/start?repository-url=https%3A%2F%2Fgithub.com%2Fmcp-use%2Fllm-cliche-highlighter-mcp&branch=main&project-name=llm-cliche-highlighter&port=3000&runtime=node&base-image=node%3A22)
+
 One MCP tool that checks supplied text for common LLM writing clichés using the
 client-side pattern engine from Simon Willison's
 [LLM cliché highlighter](https://tools.simonwillison.net/llm-cliche-highlighter).
@@ -43,10 +46,9 @@ Run the automated checks with:
 npm test
 npm run typecheck
 npm run build
+npm run check:mcp
 ```
 
-## Deploy on Manufact Cloud
-
-```bash
-npm run deploy
-```
+`npm run check:mcp` starts the production build, connects through MCP, verifies
+that `highlight-llm-cliches` is the only advertised tool, and calls it with a
+known warning.
