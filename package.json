@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "mcp-use build",
-    "check:mcp": "node scripts/check-mcp.mjs",
     "dev": "mcp-use dev",
     "start": "mcp-use start",
     "deploy": "mcp-use deploy",
@@ -36,7 +35,6 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@mcp-use/client": "^2.2.1",
     "@types/node": "^22.20.0",
     "typescript": "^7.0.2"
   }
