@@ -43,3 +43,19 @@ test("does not make network calls", () => {
     globalThis.fetch = originalFetch;
   }
 });
+
+test("stays fast on a long line with no sentence punctuation", () => {
+  // A CSV row, a pasted log line or a URL list carries no . ! ? or newline.
+  // The sentence scanners used to run to the end of such a stretch from every
+  // offset and backtrack all the way, which is quadratic in its length.
+  const text = "a,".repeat(32_000);
+
+  const started = process.hrtime.bigint();
+  analyzeText(text);
+  const elapsedMs = Number(process.hrtime.bigint() - started) / 1e6;
+
+  assert.ok(
+    elapsedMs < 2000,
+    `analyzeText took ${elapsedMs.toFixed(0)}ms on a ${text.length} character line`
+  );
+});
