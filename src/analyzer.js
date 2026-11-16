@@ -100,7 +100,7 @@ function makeEchoFinder({ minGram = 3, minRun = 2 } = {}) {
 // Flags runs of consecutive question sentences -- the stacked rhetorical
 // interrogation. The badge counts the questions.
 function makeQuestionChainFinder({ minRun = 2 } = {}) {
-  const chain = /[^.!?\n]+\?(?:\s+[^.!?\n]+\?)+/g;
+  const chain = /(?:^|(?<=[.!?\n]))[^.!?\n]+\?(?:\s+[^.!?\n]+\?)+/g;
   return function (text) {
     const found = [];
     for (const m of text.matchAll(chain)) {
@@ -125,7 +125,7 @@ function makeQuestionChainFinder({ minRun = 2 } = {}) {
 // is just ordinary prose. The badge counts the sentences.
 const ANAPHORA_SKIP = /^(?:i|it|the|a|an|this|that|we|you|they|he|she|there|but|and|so|in|as|if|my|his|her|their|its|these|those|for|at|on|of|to|is|was)$/i;
 function makeAnaphoraFinder({ minRun = 3 } = {}) {
-  const SENT = /[^.!?\n]+[.!?]/g;
+  const SENT = /(?:^|(?<=[.!?\n]))[^.!?\n]+[.!?]/g;
   return function (text) {
     const sents = [];
     for (const m of text.matchAll(SENT)) {
